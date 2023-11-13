@@ -47,6 +47,8 @@ FROM nginx:1.25-alpine-slim
 
 # Copy 'tiles' directory from builder stage to Nginx html directory
 COPY --from=builder /tiles /usr/share/nginx/html/tiles
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
+
 # COPY demo/index.html /usr/share/nginx/html/demo/index.html
 # Expose port 80
 EXPOSE 80

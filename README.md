@@ -138,4 +138,11 @@ Run the image
 
 ## Gotchas
 
-When building the tiles with tippicanoe you need to name the layer using the `--layer` flag. This is the name that has to be used as `source-layer` value when adding the layer with Mapbox.
+- When building the tiles with tippicanoe you need to name the layer using the `--layer` flag. This is the name that has to be used as `source-layer` value when adding the layer with Mapbox.
+- Never forget CORS headers
+
+## Todo
+
+- [ ] Build on CI
+- [ ] Research better ways to serve the tiles then nginx
+- [ ] tbd
