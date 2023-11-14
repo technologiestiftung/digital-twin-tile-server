@@ -143,6 +143,7 @@ Run the image
 
 ## Todo
 
+- [ ] Download/extract/discard shapefiles in Docker build stage
 - [ ] Build on CI
 - [ ] Research better ways to serve the tiles then nginx
 - [ ] tbd
