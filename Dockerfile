@@ -61,11 +61,10 @@ RUN ogr2ogr --debug ON  -f "GeoJSON" -s_srs EPSG:25833 -t_srs EPSG:4326 json/out
 RUN tippecanoe --output-to-directory /tiles '--use-attribute-for-id=id' --layer 'alkis' --no-tile-compression --force --base-zoom 13 '--minimum-zoom=10' '--maximum-zoom=17' json/output.geojson
 RUN tippecanoe -o /alkis.mbtiles '--use-attribute-for-id=id' --layer 'alkis' --no-tile-compression --force --base-zoom 13 '--minimum-zoom=10' '--maximum-zoom=17' json/output.geojson
 # Start a new stage for Nginx
-FROM nginx:1.25-alpine-slim
+FROM nginx:1.25-alpine-slim as nginx
 
 # Copy 'tiles' directory from builder stage to Nginx html directory
 COPY --from=builder /tiles /usr/share/nginx/html/tiles
-COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 # COPY demo/index.html /usr/share/nginx/html/demo/index.html
 # Expose port 80
@@ -73,3 +72,12 @@ EXPOSE 80
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
+
+FROM   ghcr.io/maplibre/martin:v0.10.0 as martin
+
+COPY --from=builder /alkis.mbtiles /mbtiles/alkis.mbtiles
+COPY martin/config.yaml /martin/config.yaml
+
+EXPOSE 80
+
+CMD ["--config", "/martin/config.yaml" ]

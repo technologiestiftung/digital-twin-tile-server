@@ -1,0 +1,6 @@
+# see https://maplibre.org/martin/30-config-file.html
+# The socket address to bind [default: 0.0.0.0:3000]
+listen_addresses: "0.0.0.0:80"
+mbtiles:
+  sources:
+    alkis: /mbtiles/alkis.mbtiles
