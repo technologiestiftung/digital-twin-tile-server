@@ -114,14 +114,14 @@ Direkt link https://datenbox.stadt-berlin.de/filr/public-link/file-download/8a8a
 Copy flowing files from the archive to your `/shp` folder
 
 ```plain
-Gebaeude_Bauteile_Flaechen.cpg
-Gebaeude_Bauteile_Flaechen.dbf
-Gebaeude_Bauteile_Flaechen.prj
-Gebaeude_Bauteile_Flaechen.sbn
-Gebaeude_Bauteile_Flaechen.sbx
-Gebaeude_Bauteile_Flaechen.shp
-Gebaeude_Bauteile_Flaechen.shp.xml
-Gebaeude_Bauteile_Flaechen.shx
+2023-10-10_SHP_BE_ALKIS/SHP_BE_ALKIS_processed/Gebaeude_Bauteile_Flaechen.cpg
+2023-10-10_SHP_BE_ALKIS/SHP_BE_ALKIS_processed/Gebaeude_Bauteile_Flaechen.dbf
+2023-10-10_SHP_BE_ALKIS/SHP_BE_ALKIS_processed/Gebaeude_Bauteile_Flaechen.prj
+2023-10-10_SHP_BE_ALKIS/SHP_BE_ALKIS_processed/Gebaeude_Bauteile_Flaechen.sbn
+2023-10-10_SHP_BE_ALKIS/SHP_BE_ALKIS_processed/Gebaeude_Bauteile_Flaechen.sbx
+2023-10-10_SHP_BE_ALKIS/SHP_BE_ALKIS_processed/Gebaeude_Bauteile_Flaechen.shp
+2023-10-10_SHP_BE_ALKIS/SHP_BE_ALKIS_processed/Gebaeude_Bauteile_Flaechen.shp.xml
+2023-10-10_SHP_BE_ALKIS/SHP_BE_ALKIS_processed/Gebaeude_Bauteile_Flaechen.shx
 ```
 
 Build the image

@@ -6,9 +6,6 @@ services:
     # build:
       # context: .
       # dockerfile: Dockerfile
-    volumes:
-      - "./shp:/usr/app/shp"
-      - "./tiles:/usr/app/tiles"
-      - "./json:/usr/app/json"
+
     ports:
       - 8080:80
