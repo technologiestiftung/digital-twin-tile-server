@@ -59,6 +59,7 @@ RUN 7z x -oshp SHP_BE_ALKIS.7z \
 
 RUN ogr2ogr --debug ON  -f "GeoJSON" -s_srs EPSG:25833 -t_srs EPSG:4326 json/output.geojson shp/2023-10-10_SHP_BE_ALKIS/SHP_BE_ALKIS_processed/Gebaeude_Bauteile_Flaechen.shp
 RUN tippecanoe --output-to-directory /tiles '--use-attribute-for-id=id' --layer 'alkis' --no-tile-compression --force --base-zoom 13 '--minimum-zoom=10' '--maximum-zoom=17' json/output.geojson
+RUN tippecanoe -o /alkis.mbtiles '--use-attribute-for-id=id' --layer 'alkis' --no-tile-compression --force --base-zoom 13 '--minimum-zoom=10' '--maximum-zoom=17' json/output.geojson
 # Start a new stage for Nginx
 FROM nginx:1.25-alpine-slim
 
