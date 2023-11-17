@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/technologiestiftung/digital-twin-tile-server/compare/v1.0.0...v1.0.1) (2023-11-17)
+
+
+### Bug Fixes
+
+* **CORS:** Added nginx conf back in ([7d089cf](https://github.com/technologiestiftung/digital-twin-tile-server/commit/7d089cf386b8b5643e8988cbd58f131af2dff182))
+
 # 1.0.0 (2023-11-16)
 
 
