@@ -78,7 +78,7 @@ jobs:
           RENDER_SERVICE_ID: ${{ secrets.RENDER_DEPLOY_HOOK}}
           RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK}}
 
-        run: node scripts/update-tag-and-deploy.js --tag=${{ steps.meta_nginx.outputs.tags }}
+        run: node scripts/update-tag-and-deploy.js --tag ${{ steps.meta_nginx.outputs.tags }} --image ${{ env.IMAGE_NAME }}-nginx
 
   # build-and-push-ghcr:
   #   env:
