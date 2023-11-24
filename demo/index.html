@@ -1,64 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <title>Mapbox GL JS</title>
-    <meta charset='utf-8' />
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.0-beta.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.0-beta.1/mapbox-gl.css' rel='stylesheet' />
-    <style>
-        body { margin: 0; padding: 0; }
-        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
-    </style>
-</head>
-<body>
-<div id='map'></div>
-<script>
-mapboxgl.accessToken = 'YOUR MAPBOX TOKEN';
-const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [13.405, 52.52],
-    zoom: 16
-});
+	<head>
+		<title>Mapbox GL JS</title>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="initial-scale=1,maximum-scale=1,user-scalable=no"
+		/>
+		<script src="https://api.mapbox.com/mapbox-gl-js/v3.0.0-beta.1/mapbox-gl.js"></script>
+		<link
+			href="https://api.mapbox.com/mapbox-gl-js/v3.0.0-beta.1/mapbox-gl.css"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			#map {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="map"></div>
+		<script>
+			mapboxgl.accessToken = "YOUR MAPBOX TOKEN";
+			const map = new mapboxgl.Map({
+				container: "map",
+				style: "mapbox://styles/mapbox/streets-v11",
+				center: [13.405, 52.52],
+				zoom: 16,
+			});
 
-map.on('load', function () {
-    map.addSource('alkis', {
-        type: 'vector',
-        tiles: [`${window.location.origin}/tiles/{z}/{x}/{y}.pbf`],
-        minzoom: 15,
-        maxzoom: 17,
-        promoteId: 'UUID'
-    });
+			map.on("load", function () {
+				map.addSource("alkis", {
+					type: "vector",
+					tiles: [`${window.location.origin}/tiles/{z}/{x}/{y}.pbf`],
+					minzoom: 15,
+					maxzoom: 17,
+					promoteId: "UUID",
+				});
 
-    map.addLayer({
-        'id': 'building-floors',
-        'type': 'fill',
-        'source': 'alkis',
-        'source-layer': 'alkis',
-        'paint': {
-            'fill-color': '#088',
-            'fill-opacity': 1
-        }
-    });
-});
-map.on('sourcedata', function(e) {
-    console.log('Source data:', e);
-    if (e.sourceId === 'alkis' && map.isSourceLoaded('alkis')) {
-        var features = map.querySourceFeatures('alkis');
-        console.log('Is source loaded:', map.isSourceLoaded('alkis'));
-        console.log('Loaded features:', features);
-        var features = map.querySourceFeatures('alkis');
-        console.log('Features:', features);
-        var tileData = map.getSource('alkis')._tiles;
-        console.log('Tile data:', tileData);
-    }
-});
+				map.addLayer({
+					id: "building-floors",
+					type: "fill",
+					source: "alkis",
+					"source-layer": "alkis",
+					paint: {
+						"fill-color": "#088",
+						"fill-opacity": 1,
+					},
+				});
+			});
+			map.on("sourcedata", function (e) {
+				console.log("Source data:", e);
+				if (e.sourceId === "alkis" && map.isSourceLoaded("alkis")) {
+					var features = map.querySourceFeatures("alkis");
+					console.log("Is source loaded:", map.isSourceLoaded("alkis"));
+					console.log("Loaded features:", features);
+					var features = map.querySourceFeatures("alkis");
+					console.log("Features:", features);
+					var tileData = map.getSource("alkis")._tiles;
+					console.log("Tile data:", tileData);
+				}
+			});
 
-map.on('error', function(e) {
-    console.error('Map error', e.error);
-});
-</script>
-
-</body>
+			map.on("error", function (e) {
+				console.error("Map error", e.error);
+			});
+		</script>
+	</body>
 </html>

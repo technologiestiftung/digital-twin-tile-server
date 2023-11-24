@@ -27,7 +27,7 @@ docker buildx create --use
 In your html page
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
 	<head>
 		<title>Mapbox GL JS</title>
