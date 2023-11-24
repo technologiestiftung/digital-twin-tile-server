@@ -67,6 +67,19 @@ jobs:
           tags: ${{ steps.meta_martin.outputs.tags }}
           labels: ${{ steps.meta_martin.outputs.labels }}
           target: martin
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - name: Install dependencies
+        run: npm ci
+      - name: Run deploy script
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_DEPLOY_HOOK }}
+          RENDER_SERVICE_ID: ${{ secrets.RENDER_DEPLOY_HOOK}}
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK}}
+
+        run: node scripts/update-tag-and-deploy.js --tag ${{ steps.meta_nginx.outputs.tags }} --image ${{ env.IMAGE_NAME }}-nginx
 
   # build-and-push-ghcr:
   #   env:

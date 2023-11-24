@@ -4,8 +4,8 @@ services:
   tileserver:
     image: technologiestiftung/digital-twin-tile-server:latest
     # build:
-      # context: .
-      # dockerfile: Dockerfile
+    # context: .
+    # dockerfile: Dockerfile
 
     ports:
       - 8080:80
